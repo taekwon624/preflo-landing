@@ -1,26 +1,33 @@
-"use client";
-import Link from "next/link";
+'use client';
 
 export default function Nav() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-slate-800/60 bg-slate-950/80 backdrop-blur-md">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold tracking-tight text-white">
-            pref<span className="gradient-text">lo</span>
-          </span>
-        </Link>
-        <div className="hidden md:flex items-center gap-8 text-sm text-slate-400">
-          <Link href="#how-it-works" className="hover:text-white transition-colors">How it works</Link>
-          <Link href="#pricing" className="hover:text-white transition-colors">Pricing</Link>
-          <Link href="#faq" className="hover:text-white transition-colors">FAQ</Link>
+    <nav
+      className="fixed top-0 w-full z-50"
+      style={{ background: 'rgba(12, 19, 36, 0.7)', backdropFilter: 'blur(20px)' }}
+    >
+      <div className="flex justify-between items-center max-w-7xl mx-auto px-6 h-20">
+        <div className="text-xl font-bold tracking-tighter text-slate-100">Preflo</div>
+        <div className="hidden md:flex items-center gap-8">
+          <a className="text-slate-400 hover:text-slate-100 transition-colors text-sm" href="#how-it-works">
+            How it works
+          </a>
+          <a className="text-slate-400 hover:text-slate-100 transition-colors text-sm" href="#features">
+            Features
+          </a>
+          <a className="text-slate-400 hover:text-slate-100 transition-colors text-sm" href="#pricing">
+            Pricing
+          </a>
+          <a className="text-slate-400 hover:text-slate-100 transition-colors text-sm" href="#faq">
+            FAQ
+          </a>
         </div>
-        <Link
-          href="mailto:hello@preflo.io"
-          className="px-4 py-2 rounded-lg text-sm font-medium bg-cyan-500 hover:bg-cyan-400 text-slate-950 transition-colors"
+        <a
+          href="mailto:hello@preflo.io?subject=Preflo Enquiry"
+          className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all"
         >
-          Book a 20-min call
-        </Link>
+          Get Started
+        </a>
       </div>
     </nav>
   );

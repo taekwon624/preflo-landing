@@ -1,132 +1,131 @@
-import Link from "next/link";
-
-const tiers = [
-  {
-    name: "Starter",
-    badge: null,
-    bestFor: "Agencies that want the system set up and handed over",
-    price: "$2,500–$3,500",
-    priceNote: "AUD · one-time",
-    cta: "Get Started",
-    ctaHref: "mailto:hello@preflo.io?subject=Preflo Enquiry",
-    ctaVariant: "outline" as const,
-    features: [
-      "Lead intake form (embeddable or standalone page)",
-      "Automated capture, classification & first-response email",
-      "Preflo dashboard deployed and connected",
-      "Custom first-response email template",
-      "1× onboarding call (60 min)",
-      "Handover documentation",
-    ],
-  },
-  {
-    name: "Growth",
-    badge: "Most Popular",
-    bestFor: "Agencies that want the system looked after, not just handed over",
-    price: "$3,000",
-    priceNote: "AUD setup + $400–$500/mo",
-    cta: "Book a Call",
-    ctaHref: "mailto:hello@preflo.io?subject=Preflo Enquiry",
-    ctaVariant: "primary" as const,
-    features: [
-      "Everything in Starter",
-      "Monthly monitoring & maintenance",
-      "Template and rule updates as needed",
-      "Priority support (response within 24h)",
-      "Quarterly check-in call",
-    ],
-  },
-  {
-    name: "Done For You",
-    badge: null,
-    bestFor: "Established agencies that want to hand the whole thing off",
-    price: "$4,000–$5,000",
-    priceNote: "AUD setup + $800–$1,200/mo",
-    cta: "Let's Talk",
-    ctaHref: "mailto:hello@preflo.io?subject=Preflo Enquiry",
-    ctaVariant: "outline" as const,
-    features: [
-      "Everything in Growth",
-      "We host & manage the full automation stack",
-      "Multi-step follow-up sequences",
-      "White-label branded dashboard",
-      "Monthly performance report",
-    ],
-  },
-];
+const CTA_LINK = 'mailto:hello@preflo.io?subject=Preflo Enquiry';
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-24 px-6 relative">
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent" />
-
-      <div className="max-w-5xl mx-auto">
-        <p className="text-xs font-semibold uppercase tracking-widest text-cyan-500 mb-4 text-center">
-          Pricing
-        </p>
-        <h2 className="text-3xl md:text-5xl font-bold text-white text-center mb-4 tracking-tight">
-          Simple pricing.
-          <br />
-          <span className="text-slate-400 font-normal">No lock-in surprises.</span>
-        </h2>
-        <p className="text-slate-400 text-center mb-4">
-          All prices in AUD. Setup is one-off unless noted.
-        </p>
-        <p className="text-slate-500 text-sm text-center mb-16">
-          We scope complex setups separately.
-        </p>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {tiers.map((tier) => (
-            <div
-              key={tier.name}
-              className={`relative flex flex-col rounded-2xl p-6 transition-all duration-300 ${
-                tier.ctaVariant === "primary"
-                  ? "bg-slate-900 border border-cyan-500/40 glow-cyan"
-                  : "bg-slate-900/50 card-border hover:border-slate-600/50"
-              }`}
-            >
-              {tier.badge && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500 text-slate-950">
-                    {tier.badge}
-                  </span>
-                </div>
-              )}
-
-              <div className="mb-6">
-                <h3 className="text-white font-bold text-xl mb-1">{tier.name}</h3>
-                <p className="text-slate-300 text-sm">{tier.bestFor}</p>
-              </div>
-
-              <div className="mb-6">
-                <div className="text-3xl font-bold text-white">{tier.price}</div>
-                <div className="text-slate-500 text-sm mt-1">{tier.priceNote}</div>
-              </div>
-
-              <ul className="space-y-3 mb-8 flex-1">
-                {tier.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center">
-                      <span className="text-cyan-400 text-[10px]">✓</span>
-                    </span>
-                    <span className="text-slate-300 text-sm">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <Link
-                href={tier.ctaHref}
-                className={`w-full text-center py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${
-                  tier.ctaVariant === "primary"
-                    ? "bg-cyan-500 hover:bg-cyan-400 text-slate-950 shadow-lg shadow-cyan-500/20"
-                    : "border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white"
-                }`}
-              >
-                {tier.cta}
-              </Link>
+    <section id="pricing" className="py-24">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4">Simple pricing. No surprises.</h2>
+          <p className="text-slate-400">All prices in AUD.</p>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Starter */}
+          <div className="bg-slate-900 p-10 rounded-xl border border-slate-800 flex flex-col">
+            <h3 className="text-xl font-bold mb-2">Starter</h3>
+            <p className="text-slate-400 text-sm mb-8">
+              Set up and handed over. You run it from there.
+            </p>
+            <div className="mb-8">
+              <span className="text-4xl font-bold">$2,500</span>
+              <span className="text-slate-400 text-sm">–$3,500 AUD</span>
+              <div className="text-slate-400 text-sm mt-1">one-time setup</div>
             </div>
-          ))}
+            <ul className="space-y-3 mb-10 flex-grow text-sm text-slate-300">
+              <li className="flex items-center gap-2">
+                <span className="text-cyan-400">✓</span> Lead intake form
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-cyan-400">✓</span> 3 automation workflows
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-cyan-400">✓</span> Preflo dashboard
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-cyan-400">✓</span> Custom email template
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-cyan-400">✓</span> Onboarding call (60 min)
+              </li>
+            </ul>
+            <a
+              href={CTA_LINK}
+              className="w-full text-center py-3 rounded-lg border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-semibold transition-all"
+            >
+              Get Started
+            </a>
+          </div>
+
+          {/* Growth — Most Popular */}
+          <div
+            className="bg-slate-900 p-10 rounded-xl border-2 border-cyan-500 relative flex flex-col"
+            style={{ boxShadow: '0 0 40px -15px rgba(76,215,246,0.15)' }}
+          >
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-cyan-500 text-slate-950 text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full">
+              Most Popular
+            </div>
+            <h3 className="text-xl font-bold mb-2">Growth</h3>
+            <p className="text-slate-400 text-sm mb-8">We stay on and keep it running well.</p>
+            <div className="mb-8">
+              <span className="text-4xl font-bold">$3,000</span>
+              <div className="text-slate-400 text-sm mt-1">
+                setup + <span className="text-cyan-400 font-semibold">$400–500/mo</span>
+              </div>
+            </div>
+            <ul className="space-y-3 mb-10 flex-grow text-sm text-slate-300">
+              <li className="flex items-center gap-2">
+                <span className="text-cyan-400">✓</span> Everything in Starter
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-cyan-400">✓</span> Monthly monitoring
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-cyan-400">✓</span> Template updates
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-cyan-400">✓</span> Priority support (24h)
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-cyan-400">✓</span> Quarterly check-in
+              </li>
+            </ul>
+            <a
+              href={CTA_LINK}
+              className="w-full text-center py-4 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold shadow-lg transition-all"
+            >
+              Book a Call
+            </a>
+          </div>
+
+          {/* Done For You */}
+          <div className="bg-slate-900 p-10 rounded-xl border border-slate-800 flex flex-col">
+            <h3 className="text-xl font-bold mb-2">Done For You</h3>
+            <p className="text-slate-400 text-sm mb-8">
+              We own the whole stack. You just use Preflo.
+            </p>
+            <div className="mb-8">
+              <span className="text-4xl font-bold">$4,000</span>
+              <span className="text-slate-400 text-sm">–$5,000 AUD</span>
+              <div className="text-slate-400 text-sm mt-1">
+                setup + <span className="text-slate-300 font-semibold">$800–1,200/mo</span>
+              </div>
+            </div>
+            <ul className="space-y-3 mb-10 flex-grow text-sm text-slate-300">
+              <li className="flex items-center gap-2">
+                <span className="text-cyan-400">✓</span> Everything in Growth
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-cyan-400">✓</span> We host the full stack
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-cyan-400">✓</span> Follow-up sequences
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-cyan-400">✓</span> White-label dashboard
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-cyan-400">✓</span> Dedicated support &amp; guidance
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-cyan-400">✓</span> Monthly performance report
+              </li>
+            </ul>
+            <a
+              href={CTA_LINK}
+              className="w-full text-center py-3 rounded-lg border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-semibold transition-all"
+            >
+              Let&apos;s Talk
+            </a>
+          </div>
         </div>
       </div>
     </section>

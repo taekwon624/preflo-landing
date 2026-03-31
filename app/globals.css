@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@layer utilities {
+  .glass-nav {
+    background: rgba(12, 19, 36, 0.7);
+    backdrop-filter: blur(20px);
+  }
+}
+
 :root {
   --background: #020617;
   --foreground: #f1f5f9;
